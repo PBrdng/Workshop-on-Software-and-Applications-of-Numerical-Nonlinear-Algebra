@@ -18,5 +18,8 @@ Before you download the notebooks:
 pkg> add IJulia
 pkg> add HomotopyContinuation
 pkg> add https://github.com/PBrdng/Bertini.jl.git
+pkg> add https://github.com/PBrdng/PHCpack.git
 pkg> add Plots
 ```
+
+If you want to use Bertini and PHCpack, you have download their binaries and add them to you PATH variable.
