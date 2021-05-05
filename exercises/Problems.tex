@@ -1,0 +1,149 @@
+\documentclass[11pt,reqno]{amsart}
+
+% packages
+
+
+\usepackage[top=3cm,bottom=3cm,left=3cm,right=3cm]{geometry}
+
+% THEOREM Environments ---------------------------------------------------
+
+\newtheorem{theorem}{Theorem}[section]
+ \newtheorem{corollary}[theorem]{Corollary}
+ \newtheorem{lemma}[theorem]{Lemma}
+ \newtheorem{proposition}[theorem]{Proposition}
+ \newtheorem{conjecture}{Conjecture}
+  \newtheorem{question}{\sc Question}
+
+  \theoremstyle{definition}
+ \newtheorem{definition}[theorem]{Definition}
+ \newtheorem{example}[theorem]{Example}
+
+ \theoremstyle{remark}
+ \newtheorem{remark}[theorem]{Remark}
+ 
+ 
+\numberwithin{equation}{section}
+
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\t}{{\bf t}}
+\newcommand{\fulges}[1]{{\color{cyan} #1}}
+%\renewcommand{\St}{\mathfrak{St}}
+\usepackage{diagbox}
+
+
+\title{Problems and Exercises}
+
+\author{P. Breiding, T. Brysiewicz, S. Telen, S. Timme}
+
+
+\begin{document}
+\maketitle
+
+\section{Monodromy}
+
+\begin{enumerate}
+\item  Show that if $X \xrightarrow{\pi} Y$ is a $d$-to-1 branched cover of irreducible varieties, then the monodromy group of $\pi$ is transitive. Show the converse: that if the monodromy group of $\pi$ is transitive, then $X$ is irreducible.
+
+\item Let $X \xrightarrow{\pi} Y$ be a $d$-to-1 cover of irreducible varieties. Show that the monodromy group of $\pi$ is $2$-transitive if and only if the variety 
+$$\{(x_1,x_2,y) \mid x_1,x_2 \in \pi^{-1}(y), y \in Y\}$$
+has two maximal dimensional irreducible components 
+
+\item Suppose $F_c(x)$ is a zero-dimensional parametrized polynomial system with variables $x_1,\ldots,x_n$ and parameters $c_1,\ldots,c_k$ defined over the real numbers. i.e. we have a branched cover 
+$$\{(x,c) \mid F_c(x)=0\} \to \mathbb{C}_c^k$$
+$$(x,c) \mapsto c$$
+ Is it possible for a real path to produce a nontrivial monodromy permutation? Under which conditions can this happen?
+
+
+\end{enumerate}
+
+\section{Witness Sets}
+\begin{enumerate}
+\item Prove the trace test for plane curves. 
+
+Hint: for one direction, it is useful to know that the monodromy group $$\{(x,L) \mid x \in X \cap L\} \xrightarrow{\pi} \textrm{Gr(2,3)}$$ $$(x,L) \mapsto L$$ is the full symmetric group
+
+\item Compute a witness set for $$\text{SO}(5) = \{M \in \text{Mat}_{\mathbb{C}}(5,5) \mid M M^T = \textrm{id}, \det(M) = 1\}$$
+
+\item How many maximal dimensional irreducible components does
+$$\text{HSO}(4) = \{M \in \text{Mat}_{\mathbb{C}}(4,4) \mid MM^T= \textrm{id}, \det(M) = 1, M_{i,i}=0 \text{ for all }i\}$$
+have? What are their degrees? How do they intersect?
+
+\item The L\"uroth hypersurface $\mathfrak{L}$ is the hypersurface in the space of plane quartics parameterized by 
+\begin{align*}
+(\mathbb{C}^3)^5 &\to \mathbb{P}^{15}\\
+(\ell_1,\ell_2,\ell_3,\ell_4,\ell_5) &\mapsto \sum_{i=1}^5 \prod_{j \neq i} \ell_j \text{ where } \ell_i = a_ix+b_iy+c_i
+\end{align*}
+Compute a witness set for $\mathfrak{L}$. What is its degree?
+
+
+\end{enumerate}
+
+\section{Other}
+
+\begin{enumerate}
+\item A conic is the zero set of a quadratic polynomial
+$$
+c(x,y) = a_1 x^2 + a_2 x y + a_3 y^2 + a_4 x + a_5 y + a_6
+$$
+with $a_i \in \mathbb{C}$.
+
+[Emiris and Tzoumas](http://www.win.tue.nl/EWCG2005/Proceedings/38.pdf) write that there are 184 complex circles that are tangent to 3 general conics $C_1$, $C_2$ and $C_3$. This means, that there are 184 complex solutions $(a_1,a_2,r)$ such that there exists some $(x,y)\in\mathbb{C}^2$ with
+
+$\bullet$ $(x-a_1)^2 + (y-a_2)^2 = r$,
+
+$\bullet$ $(x,y)\in C_i$ for $1\leq i\leq 3$ and
+
+$\bullet$ $(x-a_1, y-a_2)$ spans the normal space of $C_i$ at $(x,y)$ for $1\leq i\leq 3$.
+\begin{enumerate}
+\item Setup the polynomial system for 3 general conics and verify that this system has indeed 184 solutions
+
+\item
+Consider the three conics
+
+$$C_1 = \{y=-x^2+2x+5\}, C_2 = \{y = 2x^2+5x-8\}$$
+$$ \text{ and } C_3 = \{y = 8x^2-3x-2\}.$$
+
+How many circles are tangent to these 3 conics? How many of them are real?
+
+\item Find a configuration of 3 conics with as many real solutions as possible. It is possible to find 184 real solutions?
+
+\end{enumerate}
+
+\item A real algebraic variety is the common zero set of polynomials $f_1, \ldots, f_m \in \mathbb{R}[x_1,\ldots,x_n]$ denoted by $X=V(f_1,\ldots,f_m)$.
+
+A bottleneck of $X$ is defined to be a pair of distinct points $x, y \in X$ such that $x-y$ is orthogonal to the tangent space $\mathrm{T}_x X$ and to $\mathrm{T}_y X$.
+
+In [DEW18](https://arxiv.org/abs/1904.04502) it is shown that a generic plane curve of degree $d$ has $d^4 −5d^2 +4d$ bottleneck pairs. This is called the {bottleneck degree} of the curve.
+
+
+Consider the curve $X=V(f)$ defined by $f=(x^4 + y^4 - 1)(x^2 + y^2 - 2) + x^5y$.
+\begin{enumerate}
+\item Write down definining equations for computing all bottlenecks.
+
+\item What is the Bottleneck degree of $X$? How many real bottlenecks does it have?
+
+\item What are the coordinates smallest bottleneck pair?
+
+\item What effect do different start systems have on the number of paths necessary to track?
+
+\item Visualize all bottlenecks for your favorite plane curve
+\end{enumerate}
+
+\item Consider a general quartic surface $f \in \mathbb{C}[x,y,z]$. 
+
+This is defined by a random polynomial $f\in \mathbb{C}[x,y,z]$ of degree 4.
+
+We want to count the number of planes in three-space which are tangent to $f$ in at least 3 points.
+\begin{enumerate}
+\item Set up polynomial systems to compute all tritangent planes of a general quartic surface. (Hint you should obtain a polynomial system in 11 variables).
+
+\item What is the Bezout bound of the system in (a)?
+
+\item Use the monodromy method to solve the system from (a).
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+\end{document}
