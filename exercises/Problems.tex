@@ -40,18 +40,27 @@
 \maketitle
 
 \section{Monodromy}
+Let $F_c(x)$ be a zero-dimensional parametrized polynomial system with variables $x_1,\ldots,x_n$ and parameters $c_1,\ldots,c_k$. Let $Z \xrightarrow{\pi} \C^k$ be the branched cover where $Z=\{(x,p) | F_p(x)=0\}$ and $\pi:Z \to \C^k$ is the projection onto the parameters. Let $d$ be the degree of this branched cover.
+Let $U$ be the set of regular values of $\pi$ and $G_\pi$ the monodromy group based at some point $p \in U$. 
 
 \begin{enumerate}
-\item  Show that if $X \xrightarrow{\pi} Y$ is a $d$-to-1 branched cover of irreducible varieties, then the monodromy group of $\pi$ is transitive. Show the converse: that if the monodromy group of $\pi$ is transitive, then $X$ is irreducible.
+\item Show $G_\pi$ is a group.
 
-\item Let $X \xrightarrow{\pi} Y$ be a $d$-to-1 cover of irreducible varieties. Show that the monodromy group of $\pi$ is $2$-transitive if and only if the variety 
-$$\{(x_1,x_2,y) \mid x_1,x_2 \in \pi^{-1}(y), y \in Y\}$$
+\item Show $G_\pi$ doesn't depend on the choice of $p \in U$ where you base monodromy loops. 
+
+
+\item Show $G_\pi$ is transitive if and only if $Z$ has a unique irreducible component of maximal dimension.
+
+\item Explain why $G_\pi$ being transitive is exactly the condition which allows \texttt{monodromy solve} to find all solutions to $\pi^{-1}(p)$.
+
+\item Suppose $G_\pi$ is transitive. Show that $G_\pi$ is $2$-transitive if and only if the variety 
+$$\{(x_1,x_2,p) \mid x_1,x_2 \in \pi^{-1}(p), p \in \C^k \}$$
 has two maximal dimensional irreducible components 
 
-\item Suppose $F_c(x)$ is a zero-dimensional parametrized polynomial system with variables $x_1,\ldots,x_n$ and parameters $c_1,\ldots,c_k$ defined over the real numbers. i.e. we have a branched cover 
-$$\{(x,c) \mid F_c(x)=0\} \to \mathbb{C}_c^k$$
-$$(x,c) \mapsto c$$
- Is it possible for a real path to produce a nontrivial monodromy permutation? Under which conditions can this happen?
+\item Suppose $F_c(x)$ is defined over the real numbers.
+ Is it possible for a real path in $U$ to produce a nontrivial monodromy permutation? Under which conditions can this happen?
+ 
+\item As explained in previous lectures, solving a system $G(x)=0$ using homotopy methods requires one to embed $G(x)$ into a family of polynomial systems $F_c(x)$. Does the ability to solve $G(x)$ using monodromy depend on which family is chosen? 
 
 
 \end{enumerate}
