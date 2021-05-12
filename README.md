@@ -20,6 +20,7 @@ pkg> add HomotopyContinuation
 pkg> add https://github.com/PBrdng/Bertini.jl.git
 pkg> add https://github.com/PBrdng/PHCpack.git
 pkg> add Plots
+pkg> add ImplicitPlots
 ```
 
 If you want to use Bertini and PHCpack, you have download their binaries and add them to your PATH variable.
