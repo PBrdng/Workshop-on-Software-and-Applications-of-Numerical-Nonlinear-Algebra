@@ -6,7 +6,7 @@ This repository contains the Jupyter notebooks for the
 
 Before you download the notebooks:
 
-(1) [download Julia](https://julialang.org/downloads/)
+(1) [download Julia 1.6](https://julialang.org/downloads/)
 
 (2) start a Julia session
 
