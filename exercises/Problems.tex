@@ -5,6 +5,8 @@
 
 \usepackage[top=3cm,bottom=3cm,left=3cm,right=3cm]{geometry}
 \usepackage{hyperref}
+
+\usepackage{graphicx}
 % THEOREM Environments ---------------------------------------------------
 
 \newtheorem{theorem}{Theorem}[section]
@@ -38,6 +40,104 @@
 
 \begin{document}
 \maketitle
+
+\section{Total degree and polyhedral homotopies}
+
+\subsection{Conics in the plane}
+Consider the total degree family $\mathcal{F}(2,2)$, i.e.~$n = 2$ and $(d_1, d_2) = (2,2)$. 
+
+$$ \mathcal{F}(2,2) = \begin{pmatrix}
+f_1 \\ f_2 
+\end{pmatrix}  = \begin{pmatrix}
+a_{00} + a_{10} x + a_{01} y + a_{20}x^2 + a_{11}xy + a_{02} y^2 \\
+b_{00} + b_{10} x + b_{01} y + b_{20}x^2 + b_{11}xy + b_{02} y^2 \\
+\end{pmatrix} $$
+\begin{figure}
+\centering
+\includegraphics[scale=0.04]{Pictures_SANNA-4-1.png}
+\caption{Two \emph{generic} conics in the plane.}
+\end{figure}
+What is $\mathcal{N}_{\text{Béz}}$ in this example? Verify this by solving a random member of this family using \texttt{HomotopyContinuation.jl}.
+
+There are strictly less than $\mathcal{N}_{\text{Béz}}$  solutions in the following two scenarios.
+
+\begin{itemize} 
+\item Two or more solutions \emph{coincide}. This happens if there are solutions to the overdetermined system
+$$ f_1 = f_2 = \det \begin{pmatrix} f_{1x} & f_{1y} \\ f_{2x} & f_{2y} \end{pmatrix} = 0 \quad \text{has a solution}.$$
+Prove (possibly using a computer algebra system) that this is equivalent to the vanishing of a nonzero polynomial in the coefficients of $f_1, f_2$. This polynomial is called the \emph{discriminant}. 
+\item there are solutions \emph{at infinity}. To make this precise, we homogenize the equations:
+$$\begin{pmatrix}
+a_{00} z^2+ a_{10} x z+ a_{01} yz + a_{20}x^2 + a_{11}xy + a_{02} y^2 \\
+b_{00} z^2 + b_{10} x z + b_{01} yz + b_{20}x^2 + b_{11}xy + b_{02} y^2 \\
+\end{pmatrix},$$
+and consider solutions with $z = 0$. Geometrically, we replace our conics by their closures in $\mathbb{P}^2$. Show that there are solutions `at infinity' if and only if
+$$ \det A_\infty = \det \begin{pmatrix} a_{20} & a_{11} & a_{02} & \\ & a_{20} & a_{11} & a_{02} \\ b_{20} & b_{11} & b_{02} & \\ & b_{20} & b_{11} & b_{02} \end{pmatrix} = 0.$$
+\end{itemize}
+What about the case where $f_1 = f_2 = 0$ has infinitely many solutions? \\
+
+Construct two members of $\mathcal{F}(2,2)$ with 3 solutions, one with a solution at infinity, and one with a solution of multiplicity 2. Verify using \texttt{HomotopyContinuation.jl}.
+
+\subsection{Systems supported on the square}
+
+Consider the subfamily 
+$$ \mathcal{F}_Q = \begin{pmatrix}
+f_1 = a_{00} + a_{10}x + a_{10}y + a_{11}xy \\
+f_2 = b_{00} + b_{10}x + b_{10}y + b_{11}xy \\
+\end{pmatrix} \subset \mathcal{F}(2,2).$$
+Use the previous exercise to show that $\mathcal{N}(Q) < \mathcal{N}_{\textup{B\'ez}}$. Verify the formula $\text{MV}(P_1,P_2) = \text{Vol}_2(P_1 + P_2) - \text{Vol}_2(P_1) - \text{Vol}_2(P_2)$ for $P_1 = P_2 = [0,1]^2 \subset \mathbb{R}^2$. More generally, compute $\text{MV}(P_1, \ldots, P_n)$ with $P_i = [0,1]^n \subset \mathbb{R}^n$ for all $i$. This corresponds to a sparse family $\mathcal{F}_Q \subset \mathcal{F}(n,\ldots, n)$. Compare $\mathcal{N}(Q)$ for these systems with their B\'ezout number. For some $n$, solve a generic member of $\mathcal{F}_Q$ using a total degree and a polyhedral start system in \texttt{HomotopyContinuation.jl}.
+
+\subsection{Asymptotic BKK and B\'ezout numbers}
+This is an example taken from [Huber-Sturmfels]. Consider the family 
+
+$$\begin{pmatrix}
+a_1 +  a_2 x + a_3 x^ky^k \\
+b_1 + b_2 y + b_3 x^ky^k 
+\end{pmatrix} \subset \mathcal{F}(2k,2k).$$
+Show that $\lim_{k \rightarrow \infty} ( \mathcal{N}_{\text{BKK}} / \mathcal{N}_{\text{Béz}} ) = 0$. Compare the computation time for the function \texttt{solve} in \texttt{HomotopyContinuation.jl} using the default option (\texttt{start\_system = :polyhedral}) and the option \texttt{start\_system = :total\_degree} for random coefficients $a, b$ and increasing values of $k$. 
+
+\subsection{Toric varieties and the BKK theorem}
+
+Let $\mathcal{A} = \{ \alpha_1, \ldots, \alpha_r \} \subset \mathbb{N}^n$ be a set of exponents such that $P = \text{Conv}(\mathcal{A})$ has dimension $n$. The \emph{projective toric variety} $X_\mathcal{A}$ associated to $\mathcal{A}$ is the Zariski closure of the image of the monomial map
+$$ (x_1, \ldots, x_n) \mapsto (x^{\alpha_1} : \cdots : x^{\alpha_r}) \in \mathbb{P}^{r-1}.$$
+Use the BKK theorem to relate the degree of $X_\mathcal{A}$ to the volume of $P$. The statement you obtain is known is \emph{Kushnirenko's theorem}, which can be seen as a specialized version of the BKK theorem for \emph{unmixed systems of equations}, for which $\mathcal{A}_i = \mathcal{A}, i = 1, \ldots, n$.
+
+\subsection{Puiseux series solutions}
+
+Consider the polynomial $f = tx^3 + 2x^2 + t \in K[x]$, where $K$ is the field of Puiseux series with complex coefficients in the variable $t$. Compute the leading term of all solutions $x \in K$ to $f = 0$. That is, compute all possible $X \in \mathbb{C} \setminus \{0\}$ and $e \in \mathbb{Q}$ such that there is a solution $x(t) = X t^e + \text{higher order terms}$ satisfying $f(x(t),t) = 0$. 
+
+\textit{Hint: substitute $x(t) = X t^e + \text{higher order terms}$ in $f(x(t),t)$ and look for all exponents $e$ for which at least two terms of $f(x(t),t)$ are of lowest order in $t$. Obtain $X$ from the condition that these lowest order terms cancel. Can you give a graphical interpretation of the numbers $e$ in terms of the Newton polygon of $f$? }
+
+\subsection{Solving binomial systems is easy}
+
+Consider the system of equations over the field $K$ of complex Puiseux series in $t$:
+$$
+F = \begin{pmatrix} 1 + 2 x^2 y + 3 xy^2  \\
+5 + 2 tx  + 4 ty + 6 txy \end{pmatrix} = 0.
+$$
+How many solutions $(x(t),y(t))$ do you expect? Check that there exists a solution of the form $x(t) = X t^{-1} + \text{ higher order terms}$ and $y(t) = Y t^2 + \text{ higher order terms}$, where $(X,Y)$ is the solution of 
+$$ 1 + 2 X^2Y = 5 + 2X = 0 .$$
+Find $e_1, e_2 \in \mathbb{Q}$ such that $x(t) = X t^{e_1} +  \text{ higher order terms}$ and $y(t) = Y t^{e_2} + \text{ higher order terms}$ gives a solution for each $(X,Y) \in (\mathbb{C} \setminus \{0\})^2$ satisfying
+$$ 2 X^2 Y + 3 XY^2 = 5 + 6 XY = 0.$$
+To solve this \emph{system of binomial equations}, we write it in the form 
+\begin{equation} \label{eq:binomsys}
+XY^{-1} = -3/2, \quad XY = -5/6.
+\end{equation}
+We collect the exponent vectors in the columns of a matrix $A = \begin{pmatrix}
+1 & 1 \\ -1 & 1
+\end{pmatrix}$. There exist matrices $P, Q \in \mathbb{Z}^{2 \times 2}$ with an inverse defined over $Z$ (i.e.~$P$ and $Q$ are \emph{unimodular}) which diagonalize $A$
+\begin{equation} \label{eq:snf}
+P A Q = \begin{pmatrix}
+s_1 & \\ 
+& s_2
+\end{pmatrix}.
+\end{equation}
+This diagonal matrix is called the \emph{Smith normal form} of $A$. Denote $p_{ij}, q_{ij}$ for the entries of $P$ and $Q$ respectively. Show that the map $ (\mathbb{C} \setminus \{0\})^2 \rightarrow (\mathbb{C} \setminus \{0\})^2 $ given by 
+$$ (U,V) \mapsto (U^{p_{11}} V^{p_{21}}, U^{p_{12}} V^{p_{22}})$$
+is invertible. Use this change of coordinates on $(\mathbb{C} \setminus \{0\})^2$ and the identity \eqref{eq:snf} to reduce \eqref{eq:binomsys} to an equivalent system of equations 
+$$ U^{s_1} = c_1, \qquad V^{s_2} = c_2.$$
+Deduce that the number of solutions of \eqref{eq:binomsys} is $\det A$. Can you write down an algorithm for solving a system of binomial equations in the form \eqref{eq:binomsys} with exponent matrix $A \in \mathbb{Z}^{n \times n}$?
+
+We have now found the leading term of 3 solutions to $F = 0$. Can you find the missing solution(s) as well? 
 
 \section{Monodromy}
 Let $F_c(x)$ be a zero-dimensional parametrized polynomial system with variables $x_1,\ldots,x_n$ and parameters $c_1,\ldots,c_k$. Let $Z \xrightarrow{\pi} \C^k$ be the branched cover where $Z=\{(x,p) | F_p(x)=0\}$ and $\pi:Z \to \C^k$ is the projection onto the parameters. Let $d$ be the degree of this branched cover.
