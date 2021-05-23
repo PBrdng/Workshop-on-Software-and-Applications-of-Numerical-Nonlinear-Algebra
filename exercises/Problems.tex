@@ -107,22 +107,36 @@ $$f=(x^4 + y^4 - 1)(x^2 + y^2 - 2) + x^5y.$$
 
 \section{Witness Sets}
 \begin{enumerate}
-\item Prove the trace test for plane curves.
+\item Prove the trace test for plane curves. i.e. prove 
+\begin{itemize}
+\item if $C=\mathcal{V}(f(x,y))$ is an irreducible curve, and $L_t$ a generic parallel family of lines, then the sum of the points $C \cap L_t$ moves linearly in $t$. \\ (Hint: assume $L_t$ are the lines $\mathcal{V}(x-t)$, and parametrize them)
 
-\textit{Hint: for one direction, it is useful to know that the monodromy group $$\{(x,L) \mid x \in X \cap L\} \xrightarrow{\pi} \textrm{Gr(2,3)}$$ $$(x,L) \mapsto L$$ is the full symmetric group.}
-
-\item Compute a witness set for $$\text{SO}(5) = \{M \in \text{Mat}_{\mathbb{C}}(5,5) \mid M M^T = \textrm{id}, \det(M) = 1\}.$$
+\item if $S_t$ is a proper subset of $C \cap L_t$, then the sum of the points in $S_t$ moves nonlinearly as $t$ moves. \\ (Hint: the monodromy of the points $C \cap L_t$, as $t$ moves, is the full symmetric group)
+\end{itemize}
 
 \item How many maximal dimensional irreducible components does
 $$\text{HSO}(4) = \{M \in \text{Mat}_{\mathbb{C}}(4,4) \mid MM^T= \textrm{id}, \det(M) = 1, M_{i,i}=0 \text{ for all }i\}$$
 have? What are their degrees? How do they intersect?
 
-\item The L\"uroth hypersurface $\mathfrak{L}$ is the hypersurface in the space of plane quartics parameterized by
+
+\item Given a surface $X \subset \mathbb{P}^3$, the {\textit{flecnodal surface}} $\mathcal{F}(X)$ is the union of all lines $L$ with contact order $4$ at a point of $X$. It is one of five {\textit{event surfaces}} described in \href{https://arxiv.org/pdf/1707.01877.pdf}{ ``Changing views on curves and surfaces"} by Kohn, Sturmfels, and Trager.
+\begin{itemize}
+\item A quintic polynomial $$f=c_5+c_4t+\cdots+c_1t^4+c_0t^5$$ has a root of multiplicity four whenever the coefficients satisfy 
 \begin{align*}
-(\mathbb{C}^3)^5 &\to \mathbb{P}^{15}\\
-(\ell_1,\ell_2,\ell_3,\ell_4,\ell_5) &\mapsto \sum_{i=1}^5 \prod_{j \neq i} \ell_j \text{ where } \ell_i = a_ix+b_iy+c_i
+20c_0c_4-8c_1c_3+3c_2^2&=0 \\
+50c_0c_5-6c_1c_4+c_2c_3&=0 \\
+20c_1c_5-8c_2c_4+3c_3^2&=0.
 \end{align*}
-Compute a witness set for $\mathfrak{L}$. What is its degree?
+Compute a witness set for the above equations. For each witness point, solve the corresponding polynomial and observe that one root comes with multiplicity four. 
+\item Consider the quintic surface $$f = x_1^5+x_2^5+x_3^5+x_4^5+(x_1+x_2+x_3+x_4)^5+x_1x_2x_3x_4(x_1+x_2+x_3+x_5)$$
+in $\mathbb{P}^3$. Parametrize lines by 
+$$z(t) = (q_{1,2}:tq_{1,2}:tq_{1,3}-q_{2,3}:tq_{1,4}-q_{2,4})$$
+(here $\{q_{1,2},q_{1,3},q_{1,4},q_{2,3},q_{2,4},q_{3,4}\}$ are Pl\"ucker coordinates).
+
+Compute a witness set for the Flecnodal surface of $X=\mathcal{V}(f)$ in the coordinates $q$ (remember to include the Pl\"ucker relation $q_{1,2}q_{3,4}-q_{1,3}q_{2,4}+q_{1,4}q_{2,3}=0$.) What is its degree?
+\end{itemize}
+
+
 
 
 \end{enumerate}
@@ -139,7 +153,7 @@ f_1 \\ f_2
 a_{00} + a_{10} x + a_{01} y + a_{20}x^2 + a_{11}xy + a_{02} y^2 \\
 b_{00} + b_{10} x + b_{01} y + b_{20}x^2 + b_{11}xy + b_{02} y^2 \\
 \end{pmatrix}. $$
-\begin{figure}
+\begin{figure}[!htpb]
 \centering
 \includegraphics[scale=0.04]{Pictures_SANNA-4-1.png}
 \caption{Two \emph{generic} conics in the plane.}
@@ -232,25 +246,29 @@ Let $F_c(x)$ be a zero-dimensional parametrized polynomial system with variables
 Let $U$ be the set of regular values of $\pi$ and $G_\pi$ the monodromy group based at some point $p \in U$.
 
 \begin{enumerate}
-\item Show $G_\pi$ is a group.
+\item Show $G_\pi$ is a group and it doesn't depend on the choice of $p \in U$ where you base monodromy loops.
 
-\item Show $G_\pi$ doesn't depend on the choice of $p \in U$ where you base monodromy loops.
+\item Show $G_\pi$ is transitive if and only if $Z$ has a unique irreducible component of maximal dimension. Explain why $G_\pi$ being transitive is exactly the condition which allows \texttt{monodromy solve} to find all solutions to $\pi^{-1}(p)$.
 
-
-\item Show $G_\pi$ is transitive if and only if $Z$ has a unique irreducible component of maximal dimension.
-
-\item Explain why $G_\pi$ being transitive is exactly the condition which allows \texttt{monodromy solve} to find all solutions to $\pi^{-1}(p)$.
-
-\item Suppose $G_\pi$ is transitive. Show that $G_\pi$ is $2$-transitive if and only if the variety
-$$\{(x_1,x_2,p) \mid x_1,x_2 \in \pi^{-1}(p), p \in \C^k \}$$
-has two maximal dimensional irreducible components
 
 \item Suppose $F_c(x)$ is defined over the real numbers.
- Is it possible for a real path in $U$ to produce a nontrivial monodromy permutation? Under which conditions can this happen?
+\begin{itemize}
+\item  Is it possible for a real path in $U$ to produce a nontrivial monodromy permutation? 
+\item Give an example. 
+\item  What does this tell you about the branch locus?
+\end{itemize}
 
-\item As explained in previous lectures, solving a system $G(x)=0$ using homotopy methods requires one to embed $G(x)$ into a family of polynomial systems $F_c(x)$. Does the ability to solve $G(x)$ using monodromy depend on which family is chosen?
+\item Consider the sparse polynomial system 
 
-
+$$\begin{pmatrix}
+a_0+a_1x^2+a_2y^2+a_3x^2y^2 \\
+b_0x+b_1x^3+b_2xy^2\\
+\end{pmatrix},$$
+\begin{itemize}
+\item For $1000$ parameter values, solve this system and count how many real solutions you find.
+\item Compute the Galois group over the parameters $\{a_0,a_1,a_3,a_4,b_0,b_1,b_2\}$. 
+\item What is the structure of this system that explains what you've observed?
+\end{itemize}
 \end{enumerate}
 
 
