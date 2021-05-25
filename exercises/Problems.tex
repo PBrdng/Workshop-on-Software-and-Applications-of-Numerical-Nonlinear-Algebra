@@ -119,7 +119,7 @@ $$\text{HSO}(4) = \{M \in \text{Mat}_{\mathbb{C}}(4,4) \mid MM^T= \textrm{id}, \
 have? What are their degrees? How do they intersect?
 
 
-\item Given a surface $X \subset \mathbb{P}^3$, the {\textit{flecnodal surface}} $\mathcal{F}(X)$ is the union of all lines $L$ with contact order $4$ at a point of $X$. It is one of five {\textit{event surfaces}} described in \href{https://arxiv.org/pdf/1707.01877.pdf}{ ``Changing views on curves and surfaces"} by Kohn, Sturmfels, and Trager.
+\item Given a surface $X \subset \mathbb{R}^3$, the {\textit{flecnodal surface}} $\mathcal{F}(X)$ is the union of all lines $L$ with contact order $4$ at a point of $X$. It is one of five {\textit{event surfaces}} described in \href{https://arxiv.org/pdf/1707.01877.pdf}{ ``Changing views on curves and surfaces"} by Kohn, Sturmfels, and Trager.
 \begin{itemize}
 \item A quintic polynomial $$f=c_5+c_4t+\cdots+c_1t^4+c_0t^5$$ has a root of multiplicity four whenever the coefficients satisfy 
 \begin{align*}
@@ -128,12 +128,11 @@ have? What are their degrees? How do they intersect?
 20c_1c_5-8c_2c_4+3c_3^2&=0.
 \end{align*}
 Compute a witness set for the above equations. For each witness point, solve the corresponding polynomial and observe that one root comes with multiplicity four. 
-\item Consider the quintic surface $$f = x_1^5+x_2^5+x_3^5+x_4^5+(x_1+x_2+x_3+x_4)^5+x_1x_2x_3x_4(x_1+x_2+x_3+x_5)$$
-in $\mathbb{P}^3$. Parametrize lines by 
+\item Consider the quintic surface $$f = x_1^5+x_2^5+x_3^5+1+(x_1+x_2+x_3+1)^5+x_1x_2x_3(x_1+x_2+x_3+1)$$
+in $\mathbb{R}^3$. Find a suitable parametrization for lines in $\mathbb R^3$., Compute a witness set for the Flecnodal surface of $X=\mathcal{V}(f)$. What is its degree?
+\item We can pass from $\mathbb R^3$ to projective space $\mathbb P^3$. Here, lines can be parametrized using Pl\"ucker coordinates $\{q_{1,2},q_{1,3},q_{1,4},q_{2,3},q_{2,4},q_{3,4}\}$:
 $$z(t) = (q_{1,2}:tq_{1,2}:tq_{1,3}-q_{2,3}:tq_{1,4}-q_{2,4})$$
-(here $\{q_{1,2},q_{1,3},q_{1,4},q_{2,3},q_{2,4},q_{3,4}\}$ are Pl\"ucker coordinates).
-
-Compute a witness set for the Flecnodal surface of $X=\mathcal{V}(f)$ in the coordinates $q$ (remember to include the Pl\"ucker relation $q_{1,2}q_{3,4}-q_{1,3}q_{2,4}+q_{1,4}q_{2,3}=0$.) What is its degree?
+Homogenize $f(x_1,x_2,x_3)$ to $f_\mathrm{hom}(x_0,x_1,x_2,x_3)$ and compute a witness set for the Flecnodal surface of $X=\mathcal{V}(f_\mathrm{hom})$ in the coordinates $q$ (remember to include the Pl\"ucker relation $q_{1,2}q_{3,4}-q_{1,3}q_{2,4}+q_{1,4}q_{2,3}=0$.) What is its degree?
 \end{itemize}
 
 
