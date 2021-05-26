@@ -23,4 +23,16 @@ pkg> add Plots
 pkg> add ImplicitPlots
 ```
 
-If you want to use Bertini and PHCpack, you have download their binaries and add them to your PATH variable.
+If you want to use [Bertini](https://bertini.nd.edu) and [PHCpack](http://homepages.math.uic.edu/~jan/PHCpack/phcpack.html), you have download their binaries and add them to your PATH variable.
+
+Once you have downloaded the packages you can solve systems of polynomial equations:
+```julia-repl
+julia> using HomotopyContinuation
+julia> @var x y
+julia> f = [x^2 + 2y, y - 2]
+julia> result = solve(f)
+julia> solutions(result)
+2-element Vector{Vector{ComplexF64}}:
+ [0.0 - 2.0im, 2.0 + 0.0im]
+ [0.0 + 2.0im, 2.0 + 0.0im]
+```
