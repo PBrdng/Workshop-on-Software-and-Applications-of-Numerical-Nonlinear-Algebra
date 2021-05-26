@@ -36,3 +36,4 @@ julia> solutions(result)
  [0.0 - 2.0im, 2.0 + 0.0im]
  [0.0 + 2.0im, 2.0 + 0.0im]
 ```
+More examples can be found in the demo folder.
