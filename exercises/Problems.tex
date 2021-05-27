@@ -103,6 +103,15 @@ $$f=(x^4 + y^4 - 1)(x^2 + y^2 - 2) + x^5y.$$
 
 \item Verify that the configurations of 5 conics at \href{https://www.juliahomotopycontinuation.org/examples/3264/}{this link} has 3264 real conics, which are simultaneously tangent to all 5 of them. Use certification methods to obtain a proof!
 
+\item A quintic threefold is the zero set $X=\{(x,y,z,w)\in\mathbb C^4\mid f(x,y,z,w)=0\}$ of a polynomial $f\in\mathbb C[x,y,z,w]$ of degree $5$. Let $X$ be a quintic threefold defined by a randomly chosen polynomial $f$. Then, $X$ contains finitely many lines. Compute them. How many are there?
+
+\item Consider three Gaussian random variables $X_1,X_2,X_3$ with means $\mu_1,\mu_2,\mu_3$ and variances $\sigma_1^2,\sigma_2^2,\sigma_3^2$. The density of $X_i$ is
+$$\phi_i(x) = \frac{1}{\sqrt{2\pi}} e^{-\frac{(x-\mu_i)^2}{2\sigma_i^2}}.$$
+A mixture of the three random variables is a random variable with density
+$$\psi(x) = a_1 \phi_1(x) + a_2 \phi_2(x) + a_3 \phi_3(x), \quad\text{   for } \quad  a_1+a_2+a_3 =1.$$
+The \href{https://en.wikipedia.org/wiki/Method_of_moments_(statistics)}{method of moments} recovers $\psi$ from the moments
+  $$m_k = \int x^k \psi(x) \mathrm{d}x.$$
+Since we have 9 unknowns plus one equation $a_1+a_2+a_3=1$, we expect to need at least 8 moments to recover $\psi$. Set up a system $F$ with variables $\mu_1,\mu_2,\mu_3$, $\sigma_1^2,\sigma_2^2,\sigma_3^2$ and $a_1,a_2,a_3$ that computes the first 8 moments of $\psi$. Then, randomly sample values for the 9 variables, evaluate $F$ at those values. This gives a vector $m\in \mathbb C^8$. Solve the system $F-m=0$ (see \href{https://www.juliahomotopycontinuation.org/examples/method-of-moments/}{here}, if you need help).
 
 \item Describe the solution set to the system
 \begin{align*}
