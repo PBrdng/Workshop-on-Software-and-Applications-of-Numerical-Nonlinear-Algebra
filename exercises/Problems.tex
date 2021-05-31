@@ -138,6 +138,34 @@ and
 {V}_5  &= \{s_2-s_4+s_6-s_8 = 0\},
 \end{align*}
 (submitted by Ernesto \'{A}lvarez Gonz\'{a}lez.)
+
+\item A \emph{Gaussian conditional independence model} is a semialgebraic
+set of \emph{real, positive definite} $n \times n$ matrices given by a set
+of ``CI~statements''. Such a statement is of the form $(ij|K)$ where
+$i, j \in [n]$ are different and $K \subseteq [n] \setminus \{i,j\}$.
+It prescribes the following relation on the entries of a positive
+definite~$\Sigma$:
+\[
+  \det \Sigma_{ij|K} := \det \Sigma_{\{i\} \cup K, \{j\} \cup K} = 0,
+\]
+i.e., the ``almost-principal submatrix'' with rows $i$ and $K$ and columns
+$j$ and $K$ is singular. The roles of $i$ and $j$ in this statement are
+symmetric, so we identify $(ij|K)$ with $(ji|K)$. There are $\binom{n}{2} 2^{n-2}$
+possible CI~statements. For any set of them, the Gaussian model is the set
+of real, positive definite matrices which satisfy the indicated equations
+and \emph{no other} CI~statements. Decide whether the following Gaussian
+CI models are empty or not:
+
+\begin{enumerate}
+\scriptsize
+\item $n=3$: $(12|), (12|3)$.
+\item $n=4$: $(12|), (12|34), (34|1), (34|2)$.
+\item $n=5$: $(15|23), (15|234), (23|15), (23|145), (34|12), (34|15), (34|125), (45|12), (45|23), (45|123)$.
+\item $n=5$: $(12|345), (13|25), (14|2), (15|24), (23|1), (24|15), (25|), (34|), (35|14), (45|123)$.
+\end{enumerate}
+
+\textbf{Note:} $(23|145)$ should be read as $i=2$, $j=3$, $K = \{1,4,5\}$.
+
 \end{enumerate}
 
 \section{Witness Sets}
